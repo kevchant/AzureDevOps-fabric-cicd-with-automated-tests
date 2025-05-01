@@ -2,7 +2,7 @@
 
 Contains three different YAML files which can be used operationalize [fabric-cicd](https://github.com/microsoft/fabric-cicd) to work with Microsoft Fabric and YAML Pipelines in Azure DevOps and perform automated tests. 
 
-Initially based on a blog post I published that shows how to [automate testing Microsoft Fabric Data Pipelines with YAML Pipelines in Azure DevOps](https://www.kevinrchant.com/2025/03/18/operationalize-fabric-cicd-to-work-with-microsoft-fabric-and-yaml-pipelines/).
+Initially based on a blog post I published that shows how to [automate testing Microsoft Fabric Data Pipelines with YAML Pipelines in Azure DevOps]([https://www.kevinrchant.com/2025/03/18/operationalize-fabric-cicd-to-work-with-microsoft-fabric-and-yaml-pipelines/](https://www.kevinrchant.com/2025/05/01/automate-testing-microsoft-fabric-data-pipelines-with-yaml-pipelines/)).
 
 This repository currently caters for the three below scenarios.
 
