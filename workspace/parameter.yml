@@ -1,0 +1,23 @@
+find_replace:
+    # Replace Power BI Text
+    - find_value: "This is a Report in Dev!!!"
+      replace_value:
+        Test: "This is a Report in Test!!!"
+        Prod: "This is a Report in Prod!!!"
+
+# Old format
+# find_replace:
+#     # SQL Connection Guid
+#     "This is a Report in Dev!!!":
+#         Test: "This is a Report in Test!!!"
+#         Prod: "This is a Report in Prod!!!"
+
+# spark_pool:
+#     # CapacityPool_Large
+#     "72c68dbc-0775-4d59-909d-a47896f4573b":
+#         type: "Capacity"
+#         name: "CapacityPool_Large"
+#     # CapacityPool_Medium
+#     "e7b8f1c4-4a6e-4b8b-9b2e-8f1e5d6a9c3d":
+#         type: "Workspace"
+#         name: "WorkspacePool_Medium"

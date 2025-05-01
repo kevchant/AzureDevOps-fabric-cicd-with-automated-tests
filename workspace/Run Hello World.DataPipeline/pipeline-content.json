@@ -1,0 +1,125 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "TridentNotebook",
+        "typeProperties": {
+          "notebookId": "99b570c5-0c79-9dc4-4c9b-fa16c621384c",
+          "workspaceId": "00000000-0000-0000-0000-000000000000"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Run Hello World",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "ParquetSource",
+            "storeSettings": {
+              "type": "AzureBlobStorageReadSettings",
+              "recursive": false,
+              "wildcardFolderPath": "green/puYear=*/puMonth=*",
+              "wildcardFileName": "*.parquet",
+              "enablePartitionDiscovery": false
+            },
+            "formatSettings": {
+              "type": "ParquetReadSettings"
+            },
+            "datasetSettings": {
+              "type": "Parquet",
+              "typeProperties": {
+                "location": {
+                  "type": "AzureBlobStorageLocation",
+                  "container": "nyctlc"
+                },
+                "compressionCodec": "snappy"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "nyc_taxi_green",
+                "properties": {
+                  "type": "AzureBlobStorage",
+                  "typeProperties": {
+                    "authenticationType": "Anonymous",
+                    "containerUri": "https://azureopendatastorage.blob.core.windows.net/nyctlc"
+                  }
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "ParquetSink",
+            "formatSettings": {
+              "type": "ParquetWriteSettings",
+              "enableVertiParquet": false
+            },
+            "storeSettings": {
+              "type": "LakehouseWriteSettings",
+              "copyBehavior": "PreserveHierarchy"
+            },
+            "datasetSettings": {
+              "type": "Parquet",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": {
+                    "value": "@pipeline().parameters.DirectoryName",
+                    "type": "Expression"
+                  }
+                },
+                "compressionCodec": "snappy"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "WithoutSchema",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "c916eeb0-dd6a-ae32-4f4f-966d2414b239",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy sample data",
+        "description": "Use this template to copy data from sample data (NYC Taxi - Green) to specified file folders in Lakehouse.",
+        "dependsOn": []
+      }
+    ],
+    "parameters": {
+      "DirectoryName": {
+        "type": "string",
+        "defaultValue": "SampleData"
+      }
+    }
+  }
+}
