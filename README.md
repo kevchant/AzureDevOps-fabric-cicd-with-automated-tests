@@ -1,10 +1,10 @@
-# AzureDevOps-fabric-cicd-with-automated-tests to show how to operationalize fabric-cicd to work with Microsoft Fabric and YAML Pipelines in Azure DevOps and perform automated tests
+# AzureDevOps-fabric-cicd-with-automated-tests  to operationalize fabric-cicd to work with Microsoft Fabric and YAML Pipelines in Azure DevOps and perform automated tests
 
-Contains three different YAML files which can be used operationalize [fabric-cicd](https://github.com/microsoft/fabric-cicd) to work with Microsoft Fabric and YAML Pipelines in Azure DevOps and perform automated tests. 
+Contains three different YAML files which can be setup as YAML Pipelines in Azure DevOps. So that you can operationalize [fabric-cicd](https://github.com/microsoft/fabric-cicd) to work with Microsoft Fabric and perform automated tests. 
 
-Initially based on a blog post I published that shows how to [automate testing Microsoft Fabric Data Pipelines with YAML Pipelines in Azure DevOps]([https://www.kevinrchant.com/2025/03/18/operationalize-fabric-cicd-to-work-with-microsoft-fabric-and-yaml-pipelines/](https://www.kevinrchant.com/2025/05/01/automate-testing-microsoft-fabric-data-pipelines-with-yaml-pipelines/)).
+Initially created to accompany a blog post I published that shows how to [automate testing Microsoft Fabric Data Pipelines with YAML Pipelines in Azure DevOps](https://www.kevinrchant.com/2025/03/18/operationalize-fabric-cicd-to-work-with-microsoft-fabric-and-yaml-pipelines/). If you wish to focus solely on deploying fabric-cicd with YAML pipelines without any testing you can view my [AzureDevOps-fabric-cicd-sample repository]([https://github.com/microsoft/fabric-cicd](https://github.com/kevchant/AzureDevOps-fabric-cicd-sample)) 
 
-This repository currently caters for the three below scenarios.
+This repository currently contains the below three YAML files that you can configure for various scenarios:
 
 1. [fabric-cicd-demo-variables.yml](/AzureDevOpstemplates/fabric-cicd-demo-variables.yml) - Pipeline that is fully orchestrated Azure Pipeline variables. For scenarios where all the values are constant.
 2. [fabric-cicd-demo-wsparameters.yml](/AzureDevOpstemplates/fabric-cicd-demo-wsparameters.yml) - Pipeline that contains parameters that affect workspace values. Including workspace ID and items to deploy.
@@ -12,7 +12,7 @@ This repository currently caters for the three below scenarios.
 
 You can find all the YAML files in the [AzureDevOpstemplate subfolder](/AzureDevOpstemplates). All of files contain details about what variables and/or prarameters are required for each one.
 
-Currently there is stage in each pipeline called Test data Pipeline which caters for performing tests aginst the "Run Hello World" Data Pipeline. Based on the [Data Factory Testing Framework](https://github.com/microsoft/data-factory-testing-framework) .You can find the relevant python file in the "Tests" subfolder of the repository.
+Currently there is stage in each pipeline called Test Data Pipeline which caters for performing tests aginst the "Run Hello World" Data Pipeline. Based on the [Data Factory Testing Framework](https://github.com/microsoft/data-factory-testing-framework) .You can find the relevant python file in the "Tests" subfolder of the repository.
 
 One quick way to get started is to [import the repository into Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/repos/git/import-git-repository?view=azure-devops&WT.mc_id=DP-MVP-5004032%3Fview%3Dazure-devops). From there, [create a pipeline from an existing YAML file](https://xeladu.medium.com/how-to-create-a-pipeline-from-an-existing-yaml-file-in-azure-devops-4c41e74fde2b).
 
